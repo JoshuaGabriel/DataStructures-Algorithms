@@ -1,14 +1,14 @@
-package DataStructures.Stack;
+package Stack;
 
 import java.util.EmptyStackException;
 
-public class Stack<T> {
+public class StackArray<T> {
     private int DefaultSize=2;
     private T[] array;
     private int top;
 
     @SuppressWarnings("unchecked")
-    public Stack(){
+    public StackArray(){
         this.top=-1;
         this.array = (T[]) new Object[DefaultSize];
     }
