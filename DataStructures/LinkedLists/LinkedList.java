@@ -34,7 +34,6 @@ public class LinkedList<T> {
         this.size++;
     }
 
-
     public void insertBack(T data){
         Node<T> np = new Node<T>(data);
         if(size==0){
@@ -48,10 +47,31 @@ public class LinkedList<T> {
         this.size++;
     }
 
-	public void remove(Node<T> p) {
-		p.prev.next = p.next;
-		p.next.prev = p.prev;
-	}
+    public Node<T> popFront(){
+        Node<T> temp = this.head;
+        if(this.size>0){
+            this.head = this.head.next;
+        }
+        this.size--;
+        return temp;
+    }
+    public Node<T> popBack(){
+        Node<T> temp = this.tail;
+        if(this.size>0){
+            this.tail = this.tail.prev;
+        }
+        this.size--;
+        return temp;
+    }
+	// public void remove(int index) {
+    //     if(index==0){
+    //         this.head = this.head.next;
+            
+    //     }else if(index==this.size-1){
+    //         this.tail = this.tail.prev;
+    //     }
+    //     this.size--;
+	// }
 
     public Node<T> getHead(){
         return this.head;
