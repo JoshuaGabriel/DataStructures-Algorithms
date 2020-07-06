@@ -31,11 +31,22 @@ public class Tester {
 
 
         sort ss = new sort();
-        int[] myarray = {43,23,12,5,9,90,4,1,0,6,43,91,45,65,12,34};
+        int[] myarray = new int[]{43,23,12,5,9,90,4,1,0,6,43,91,45,65,12,34};
+        System.out.println("\n\t   Collection of sorting algorithms\n");
+        System.out.println("\t\t   insertion sort!");
         System.out.println(printArray(myarray));
-        myarray = ss.bubbleSort(myarray);
-        System.out.println(printArray(myarray));
+        ss.insertionSort(myarray);
+
         
+        myarray = new int[]{43,23,12,5,9,90,4,1,0,6,43,91,45,65,12,34};
+        System.out.println("\n\t\t   bubble sort!");
+        System.out.println(printArray(myarray));
+        ss.bubbleSort(myarray);
+
+        myarray = new int[]{43,23,12,5,9,90,4,1,0,6,43,91,45,65,12,34};
+        System.out.println("\n\t\t   selection sort!");
+        System.out.println(printArray(myarray));
+        ss.selectionSort(myarray);
     }
 
     private static String printArray(int[] myarray){
