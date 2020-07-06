@@ -32,13 +32,20 @@ public class Tester {
 
         sort ss = new sort();
         int[] myarray = {43,23,12,5,9,90,4,1,0,6,43,91,45,65,12,34};
-        myarray = ss.selectionSort(myarray);
+        System.out.println(printArray(myarray));
+        myarray = ss.bubbleSort(myarray);
+        System.out.println(printArray(myarray));
+        
+    }
+
+    private static String printArray(int[] myarray){
         String sum = "";
-        for(int i=0;i<myarray.length-1;i++){
+        for(int i=0;i<myarray.length;i++){
             sum+=myarray[i]+", ";
         }
-        System.out.println(sum);
+        return sum;
     }
+    
 
 
 
