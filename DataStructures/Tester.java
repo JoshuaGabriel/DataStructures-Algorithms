@@ -1,6 +1,6 @@
-package dataStructures;
-import dataStructures.stack.*;
-import dataStructures.linkedLists.*;
+package datastructures;
+import datastructures.stack.*;
+import datastructures.linkedlists.*;
 
 public class Tester {
     public static void main(String[] args) {
@@ -13,6 +13,7 @@ public class Tester {
         ll.insertBack(5);
         ll.insertBack(20);
         ll.insertBack(-24);
+        ll.insertFront(3);
         System.out.println(ll.toString());
 
 

@@ -1,4 +1,4 @@
-package dataStructures.linkedLists;
+package datastructures.linkedlists;
 
 public class Node<T> {
     protected Node<T> next;

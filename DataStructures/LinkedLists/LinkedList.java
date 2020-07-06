@@ -1,4 +1,4 @@
-package dataStructures.linkedLists;
+package datastructures.linkedlists;
 public class LinkedList<T> {
     
     private int size;
@@ -21,15 +21,28 @@ public class LinkedList<T> {
     // }
     
     // adds at the end of linked list
+    public void insertFront(T data){
+        Node<T> np = new Node<T>(data);
+        if(size==0){
+            this.head = np;
+            this.tail = np;
+        }else{
+            np.next = this.head;
+            this.head.prev = np;
+            this.head = np;
+        }
+        this.size++;
+    }
+
+
     public void insertBack(T data){
         Node<T> np = new Node<T>(data);
         if(size==0){
             this.head = np;
             this.tail = np;
         }else{
-            Node<T> temp = this.tail;
-            temp.next = np;
-            np.prev = temp;
+            this.tail.next = np;
+            np.prev = this.tail;
             this.tail = np;
         }
         this.size++;
