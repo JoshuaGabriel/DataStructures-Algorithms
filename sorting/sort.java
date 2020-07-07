@@ -132,7 +132,14 @@ public class sort{
         printArray(array);
     }
 
-
+    /*
+    Best-case: O(nlogn)
+    Average-case: O(nlogn)
+    Worse-case: O(n^2)
+    Stability: Yes, but must be careful as it depends on how the pivot 
+    is chosen and how the swaps are done
+    Memory: if done like merge sort O(n) but inplaceQuicksort is O(1)
+    */
     public void quickSort(int[] array){        
         inplaceQuickSort(array,0,array.length-1);
     }
