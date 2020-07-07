@@ -12,7 +12,7 @@ public class sort{
     */
     public int[] selectionSort(int[] array){
         int min;
-        for(int i=0;i<array.length-2;i++){
+        for(int i=0;i<array.length-1;i++){
             min = i;
             for(int j=i+1;j<array.length;j++){
                 if(array[j]<array[min]){
@@ -39,7 +39,7 @@ public class sort{
         while(swapped){
             swapped = false;
         
-            for(int i=0;i<array.length;i++){
+            for(int i=0;i<array.length-1;i++){
                 if(array[i+1]<array[i]){
                     swap(i+1,i,array);
                     swapped = true;
@@ -72,6 +72,55 @@ public class sort{
             printArray(array);
         }
         return array;
+    }
+
+
+
+    public int[] mergeSort(int[] array){
+        if(array.length<2){
+            return array;
+        }
+        int[] farray = new int[array.length/2];
+        int[] sarray = new int[array.length/2];
+        divide(farray,sarray,array);
+        farray = mergeSort(farray);
+        sarray = mergeSort(sarray);
+        merge(farray,sarray,array);
+        return array;
+    }
+
+    private void divide(int[] farray,int[] sarray,int[] array){
+        int i;
+        for(i=0;i<=array.length/2 -1;i++){
+            farray[i] = array[i];
+        }
+        for(i=array.length/2;i<array.length;i++){
+        
+            sarray[i-array.length/2] = array[i];
+        }
+    }
+
+    private void merge(int[] farray,int[] sarray,int[] array){
+        int j = 0;
+        int i = 0;
+        while(i<farray.length && j<sarray.length){
+            if(farray[i]<sarray[j]){
+                array[i+j] = farray[i];
+                i = i + 1;
+            }else{
+                array[i+j] = sarray[j];
+                j = j + 1;
+            }
+        }
+        while(i<farray.length){
+            array[i+j] = farray[i];
+            i = i + 1;
+        }
+        while(j<sarray.length){
+            array[i+j] = sarray[j];
+            j = j + 1;
+        }
+        printArray(array);
     }
 
 

@@ -32,10 +32,9 @@ public class Tester {
 
         sort ss = new sort();
         int[] myarray = new int[]{43,23,12,5,9,90,4,1,0,6,43,91,45,65,12,34};
-        System.out.println("\n\t   Collection of sorting algorithms\n");
-        System.out.println("\t\t   insertion sort!");
+        System.out.println("\n\t\t   selection sort!");
         System.out.println(printArray(myarray));
-        ss.insertionSort(myarray);
+        ss.selectionSort(myarray);
 
         
         myarray = new int[]{43,23,12,5,9,90,4,1,0,6,43,91,45,65,12,34};
@@ -44,9 +43,16 @@ public class Tester {
         ss.bubbleSort(myarray);
 
         myarray = new int[]{43,23,12,5,9,90,4,1,0,6,43,91,45,65,12,34};
-        System.out.println("\n\t\t   selection sort!");
+        System.out.println("\n\t   Collection of sorting algorithms\n");
+        System.out.println("\t\t   insertion sort!");
         System.out.println(printArray(myarray));
-        ss.selectionSort(myarray);
+        ss.insertionSort(myarray);
+
+        myarray = new int[]{43,23,12,5,9,90,4,1,0,6,43,91,45,65,12,34};
+        System.out.println("\n\t\t   merge sort!");
+        System.out.println(printArray(myarray));
+        ss.mergeSort(myarray);
+        System.out.println(printArray(myarray));
     }
 
     private static String printArray(int[] myarray){
