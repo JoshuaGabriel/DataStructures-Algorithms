@@ -76,6 +76,15 @@ public class sort{
 
 
 
+    /*
+    Best-Case: O(nlogn) always the same even if array is sorted
+    Average-Case: O(nlogn)
+    Worst-Case: O(nlogn)
+
+    Stability: Yes - on merge, choose element from array1 where there is a tie
+    Memory: O(n) sized array to temporarily hold elements (call stack also takes memory)
+    The number of times we split and merge is O(n) bound by O(logn) thus O(nlogn) for worse case
+    */
     public int[] mergeSort(int[] array){
         if(array.length<2){
             return array;
@@ -123,6 +132,55 @@ public class sort{
         printArray(array);
     }
 
+
+    public void quickSort(int[] array){        
+        inplaceQuickSort(array,0,array.length-1);
+    }
+
+    private void inplaceQuickSort(int[] array,int low,int high){
+        if(low<high){
+            int pi = partition(array, low, high);
+            inplaceQuickSort(array, low, pi-1);
+            inplaceQuickSort(array, pi+1, high);
+        }
+    }
+
+    private int partition(int[] array,int low,int high){
+        int pivot = array[high];
+        int i = low-1;
+        for(int j=low;j<=high-1;j++){
+            if(array[j]<pivot){
+                i++;
+                swap(i,j,array);
+            }
+        }
+        swap(i+1,high,array);
+        printArray(array);
+        return i+1;
+    }
+
+    public void bentleyQuicksort(int[] array){
+        bentleyHelper(array,0,array.length-1);
+    }
+    private void bentleyHelper(int[] array,int low,int high){
+        int i,pi;
+        
+        if(low>=high){
+            return;
+        }
+        pi = low;
+        for(i=low+1;i<=high;i++){
+            if(array[i]<array[low]){
+                pi = pi + 1;
+                swap(pi,i,array);
+            }
+        }
+        swap(low,pi,array);
+        printArray(array);
+        bentleyHelper(array, low, pi-1);
+        bentleyHelper(array, pi+1, high);
+        
+    }
 
     private void swap(int i, int min,int[] array){
         int temp = array[i];
